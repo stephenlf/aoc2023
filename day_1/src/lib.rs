@@ -81,6 +81,9 @@ impl<'a, 'b> Iterator for FindIter<'a, 'b> {
 }
 
 impl<'a, 'b> FindIter<'a, 'b> {
+    /// Construct an iterator over all `pattern` matches in string `slice`
+    /// Works by repeatedly calling `str::find` until all matches have
+    /// been found
     pub fn find_iter(slice: &'a str, pattern: &'b str) -> Self {
         Self {
             slice,
